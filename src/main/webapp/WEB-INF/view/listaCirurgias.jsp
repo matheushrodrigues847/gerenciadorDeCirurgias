@@ -20,6 +20,10 @@
 	</div>
 	<br>
 	<br>
+	<c:import url="logout.jsp"></c:import>
+	<br>
+	<br>
+	${usuario.login }
 	<table border="1px" width="70%" >
 		<tr>
 			<th>Paciente</th>

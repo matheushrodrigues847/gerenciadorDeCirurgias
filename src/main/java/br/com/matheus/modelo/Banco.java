@@ -9,6 +9,7 @@ public class Banco {
 	
 	public static List<Cirurgia> cirurgias = new ArrayList<Cirurgia>();
 	public static int id = 1;
+	public static List<User> usuarios = new ArrayList<User>();
 	
 	
 	
@@ -23,6 +24,12 @@ public class Banco {
 		cirurgia1.setId(Banco.id++);
 		
 		Banco.cirurgias.add(cirurgia1);
+		
+		User u1 = new User("matheus","12345");
+		User u2 = new User("raquel","54321");
+		
+		Banco.usuarios.add(u1);
+		Banco.usuarios.add(u2);
 	}
 	
 	
@@ -45,6 +52,14 @@ public class Banco {
 		Banco.cirurgias.add(c);
 	}
 	
-	
+	public boolean confereUsuarioEhSenha(User u) {
+		Optional<User> usuario =  usuarios.stream().filter(user -> user.equals(u)).findAny();
+		
+		if(usuario.isEmpty()) {
+			return false;
+		}
+		
+		return true;
+	}
 
 }
